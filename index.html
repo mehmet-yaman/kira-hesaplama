@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Artış Hesaplama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Kira Artış Hesaplama</h1>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="container">
+            <h1>Kira Artış Hesaplama Aracı</h1>
+            <p>1 Temmuz 2024 sonrası kira artış hesaplama aracı</p>
+        </div>
+    </main>
+
+    <section class="calculator">
+        <div class="container">
+            <div class="calc-card">
+                <h2>Hesaplama Formu</h2>
+                <form id="rentForm">
+                    <div class="form-group">
+                        <label for="contractDate">İlk Kontrat Tarihi</label>
+                        <input type="date" id="contractDate" required>
+                        <div class="date-info">
+                            <p><small>* Kira artışı yapabilmek için kontrat süresinin en az 6 ay olması gerekmektedir.</small></p>
+                            <p><small>* Gelecek tarihli kontratlar için hesaplama yapılamaz.</small></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentRent">Mevcut Kira Bedeli (TL)</label>
+                        <input type="number" id="currentRent" required min="0" step="0.01" placeholder="Örn: 10000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="increaseRate">Artış Oranı (%)</label>
+                        <input type="number" id="increaseRate" min="0" max="100" step="0.01" placeholder="Güncel TÜFE için boş bırakın">
+                    </div>
+
+                    <button type="submit" class="btn-primary">Hesapla</button>
+                </form>
+
+                <div id="result" class="result-box" style="display: none;">
+                    <h3>Hesaplama Sonucu</h3>
+                    <div id="contractWarning" class="warning-box" style="display: none;">
+                        <p class="warning-text">⚠️ Dikkat: Kontrat süresi 10 yılı aşmıştır. Ev sahibi tarafından tahliye talebinde bulunulabilir!</p>
+                    </div>
+                    <div id="fiveYearInfo" class="info-box" style="display: none;">
+                        <p class="info-text">ℹ️ Kontrat süresi 5 yılı aştığı için kira artış oranında üst sınır bulunmamaktadır.</p>
+                    </div>
+                    <div class="result-grid">
+                        <div class="result-item">
+                            <span>Mevcut Kira:</span>
+                            <span id="currentRentResult">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Artış Miktarı:</span>
+                            <span id="increaseAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Yeni Kira:</span>
+                            <span id="newRent">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kontrat Süresi:</span>
+                            <span id="contractDuration">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sorumluluk Reddi Modal -->
+    <div id="disclaimerModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h4>Sorumluluk Reddi Beyanı</h4>
+            <div class="modal-body">
+                <p>Bu hesaplama aracı sadece bilgilendirme amaçlıdır ve yasal bağlayıcılığı yoktur. Hesaplamalar:</p>
+                <ul>
+                    <li>TÜİK tarafından açıklanan TÜFE oranları baz alınarak yapılmaktadır.</li>
+                    <li>Sonuçlar tahmini değerler olup, kesin hukuki dayanak oluşturmaz.</li>
+                    <li>Her kira sözleşmesi kendine özgü şartlar içerebilir.</li>
+                    <li>Yasal haklarınız ve yükümlülükleriniz için bir hukuk uzmanına danışmanız önerilir.</li>
+                </ul>
+                <p>Bu aracı kullanarak, sonuçların sadece referans amaçlı olduğunu ve herhangi bir yasal işlem için tek başına yeterli olmayacağını kabul etmiş olursunuz.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="acceptDisclaimer" class="btn-primary">Kabul Ediyorum</button>
+                <button id="rejectDisclaimer" class="btn-secondary">Kabul Etmiyorum</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kira Artış Hesaplama. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html> 

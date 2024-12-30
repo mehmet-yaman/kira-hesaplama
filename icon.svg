@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Arka plan -->
+    <rect width="512" height="512" fill="#667eea" rx="128"/>
+    
+    <!-- Ev çizimi -->
+    <path d="M256 120L120 240H160V360H352V240H392L256 120Z" 
+          fill="white"/>
+    
+    <!-- Yukarı ok ve yüzde işareti -->
+    <path d="M240 280L256 260L272 280M256 260V320" 
+          stroke="#667eea" 
+          stroke-width="16" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+    
+    <!-- Yüzde işareti -->
+    <circle cx="220" cy="300" r="8" fill="#667eea"/>
+    <circle cx="292" cy="300" r="8" fill="#667eea"/>
+    <path d="M230 290L282 310" 
+          stroke="#667eea" 
+          stroke-width="8" 
+          stroke-linecap="round"/>
+</svg> 
